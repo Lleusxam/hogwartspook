@@ -12,37 +12,65 @@ class CharacterDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(character.name),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Image.network(
-                character.image,
-                height: 300,
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.network(
+                  character.image,
+                  height: 300,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const SizedBox(height: 16),
-            Text(
-              'Name: ${character.name}',
-              style: const TextStyle(fontSize: 18),
-            ),
-            Text(
-              'Species: ${character.species}',
-              style: const TextStyle(fontSize: 18),
-            ),
-            Text(
-              'Ancestry: ${character.ancestry}',
-              style: const TextStyle(fontSize: 18),
-            ),
-            Text(
-              'Patronus: ${character.patronus}',
-              style: const TextStyle(fontSize: 18),
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildDetailRow('Name', character.name),
+                    _buildDetailRow('Species', character.species),
+                    _buildDetailRow('Ancestry', character.ancestry),
+                    _buildDetailRow('Patronus', character.patronus),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildDetailRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        children: [
+          Text(
+            '$label: ',
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          Expanded(
+            child: Text(
+              value,
+              style: const TextStyle(fontSize: 16),
+            ),
+          ),
+        ],
       ),
     );
   }
