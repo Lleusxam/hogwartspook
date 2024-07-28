@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projetopoo/models/character_model.dart';
 import 'package:projetopoo/controllers/character_controller.dart';
+import 'package:projetopoo/views/screens/character.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -26,6 +27,14 @@ class Home extends StatelessWidget {
                 return Card(
                   margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ListTile(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CharacterDetailScreen(character: character),
+                        ),
+                      );
+                      },
                     contentPadding: const EdgeInsets.all(10.0),
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(50.0),
