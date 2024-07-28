@@ -20,8 +20,15 @@ class CharacterDetailScreen extends StatelessWidget {
             Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
+                child: 
+                character.image.isNotEmpty ? 
+                Image.network(
                   character.image,
+                  height: 300,
+                  fit: BoxFit.cover,
+                )
+                : Image.asset(
+                  '../assets/default-photo.png',
                   height: 300,
                   fit: BoxFit.cover,
                 ),
