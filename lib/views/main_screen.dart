@@ -4,6 +4,7 @@ import 'navigation_bar.dart';
 import '../controllers/navigationbar_controller.dart';
 import './screens/home.dart';
 import './screens/spells.dart';
+import 'appbar.dart';
 
 class MainScreen extends StatelessWidget{
   MainScreen({super.key});
@@ -21,7 +22,7 @@ class MainScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Exemplo")),
+      appBar: const MyAppBar(),
       body: Obx(() {
         return _pages[_navigationController.currentIndex.value];
       }),
