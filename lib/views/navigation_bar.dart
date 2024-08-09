@@ -12,10 +12,13 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return BottomNavigationBar(
-         currentIndex: _navigationController.currentIndex.value,
+        backgroundColor: Colors.black,
+          currentIndex: _navigationController.currentIndex.value,
           onTap: (index) {
             _navigationController.changePage(index);
           },
+          selectedItemColor: Colors.brown,
+          unselectedItemColor: Colors.white,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Spells'),

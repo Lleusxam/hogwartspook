@@ -11,7 +11,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        title: const Text("Exemplo HP")
+      backgroundColor: Colors.black,
+        title: const Center(
+          child: Text("Wizardpedia <", style:TextStyle(fontSize: 70,  color: Colors.white, fontFamily: 'MagicSchool'))),
     );
   }
 }
