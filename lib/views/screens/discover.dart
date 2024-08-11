@@ -1,39 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:projetopoo/controllers/discover_controller.dart';
 
 
-class SortingHatController extends GetxController {
-  // Lista de frases do Chapéu Seletor
-  final List<String> phrases = [
-    "Ah, você chegou... eu sou o Chapéu Seletor!",
-    "Vou vasculhar sua mente...",
-    "Hum... vejo coragem, lealdade...",
-    "Já sei exatamente onde você pertence!",
-  ];
-
-  // Índice atual da frase
-  var currentPhraseIndex = 0;
-
-  // Método para avançar para a próxima frase
-  void nextPhrase() {
-    if (currentPhraseIndex < phrases.length - 1) {
-      currentPhraseIndex++;
-      update(); // Atualiza a UI
-    } else {
-      // Redireciona para a tela da casa escolhida
-      Get.offNamed('/houseChosen');
-    }
-  }
-}
-
-
-class Hat extends StatelessWidget {
+class Discover extends StatelessWidget {
   
-  const Hat({super.key});
+  const Discover({super.key});
   @override
   Widget build(BuildContext context) {
     // Inicializa o controller
-    final SortingHatController controller = Get.put(SortingHatController());
+    final HatController controller = Get.put(HatController());
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -49,8 +25,8 @@ class Hat extends StatelessWidget {
                   'images/chapeu.gif',
                   height: 200.0,
                 ),
-                SizedBox(height: 20.0,),
-                GetBuilder<SortingHatController>(
+                const SizedBox(height: 20.0,),
+                GetBuilder<HatController>(
               builder: (_) {
                 return Text(
                   controller.phrases[controller.currentPhraseIndex],
