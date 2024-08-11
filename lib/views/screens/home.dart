@@ -57,7 +57,7 @@ class Home extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 )
                               : Image.asset(
-                                  '../assets/default-photo.png',
+                                  'images/default-photo.png',
                                   width: 50.0,
                                   height: 50.0,
                                   fit: BoxFit.cover,

@@ -42,7 +42,7 @@ class Spells extends StatelessWidget {
                   itemBuilder: (context, index) {
                     Spell spell = snapshot.data![index];
                     return Card(
-                      color: Colors.black54,
+                      color: Colors.transparent,
                       elevation: 4.0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),

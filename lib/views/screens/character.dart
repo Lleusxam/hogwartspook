@@ -10,51 +10,69 @@ class CharacterDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(character.name),
+        title: Text(character.name, style: const TextStyle(color: Colors.white)),
+        backgroundColor: Colors.black, // Define a cor da AppBar para combinar com o tema
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: 
-                character.image.isNotEmpty ? 
-                Image.network(
-                  character.image,
-                  height: 300,
-                  fit: BoxFit.cover,
-                )
-                : Image.asset(
-                  '../assets/default-photo.png',
-                  height: 300,
-                  fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          // Imagem de fundo
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/card.jpg"), // Caminho para a imagem de fundo
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.transparent, // Aplica uma camada semitransparente sobre a imagem
+                  BlendMode.darken,
                 ),
               ),
             ),
-            const SizedBox(height: 16),
-            Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildDetailRow('Name', character.name),
-                    _buildDetailRow('Species', character.species),
-                    _buildDetailRow('Ancestry', character.ancestry),
-                    _buildDetailRow('Patronus', character.patronus),
-                  ],
+          ),
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: character.image.isNotEmpty
+                        ? Image.network(
+                            character.image,
+                            height: 300,
+                            fit: BoxFit.cover,
+                          )
+                        : Image.asset(
+                            'images/default-photo.png', // Certifique-se de que o caminho esteja correto
+                            height: 300,
+                            fit: BoxFit.cover,
+                          ),
+                  ),
                 ),
-              ),
+                const SizedBox(height: 16),
+                Card(
+                  color: Colors.black87.withOpacity(0.7), // Fundo semitransparente
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildDetailRow('Name', character.name),
+                        _buildDetailRow('Species', character.species),
+                        _buildDetailRow('Ancestry', character.ancestry),
+                        _buildDetailRow('Patronus', character.patronus),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -69,12 +87,13 @@ class CharacterDetailScreen extends StatelessWidget {
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
+              color: Colors.white, // Cor do texto
             ),
           ),
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16, color: Colors.white), // Cor do texto
             ),
           ),
         ],
