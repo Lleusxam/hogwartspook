@@ -65,6 +65,7 @@ class CharacterDetailScreen extends StatelessWidget {
                         _buildDetailRow('Species', character.species),
                         _buildDetailRow('Ancestry', character.ancestry),
                         _buildDetailRow('Patronus', character.patronus),
+                        _buildDetailRow('Alive', character.alive)
                       ],
                     ),
                   ),
@@ -77,7 +78,17 @@ class CharacterDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDetailRow(String label, String value) {
+  dynamic _buildDetailRow(String label, dynamic value) {
+    value = value.toString();
+
+    // TO-DO: Melhorar este código
+    if(value == "true") {
+      value = "Yes";
+    } 
+    if(value == "false"){
+      value = "No";
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
@@ -92,7 +103,7 @@ class CharacterDetailScreen extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              value,
+              value.isEmpty ? 'No information' : value,
               style: const TextStyle(fontSize: 16, color: Colors.white), // Cor do texto
             ),
           ),
