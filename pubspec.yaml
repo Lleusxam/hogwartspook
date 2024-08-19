@@ -64,10 +64,15 @@ flutter:
   assets:
     - assets/images/default-photo.png
     - assets/fonts/
+    - assets/images/chapeu.png
     - assets/images/definir.jpg
     - assets/images/feiticos.jpg
     - assets/images/personagens.jpg
     - assets/images/card.jpg
+    - assets/images/gryffindor.png
+    - assets/images/slytherin.png
+    - assets/images/ravenclaw.png
+    - assets/images/hufflepuff.png
 
   fonts:
     - family: MagicSchool

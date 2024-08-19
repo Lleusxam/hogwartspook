@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; // Se você estiver usando GetX
+import 'package:get/get.dart'; 
 import 'views/main_screen.dart';
-import 'views/house_chosen_page.dart'; // Crie e importe sua tela HouseChosenPage
+import 'views/house_chosen_page.dart'; 
 
 void main() {
   MyApp app = const MyApp();
@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp( // Use GetMaterialApp se estiver usando GetX
+    return GetMaterialApp( 
       home: MainScreen(),
       getPages: [
         GetPage(name: '/', page: () => MainScreen()),
-        // GetPage(name: '/houseChosen', page: () => HouseChosenPage()),
+        GetPage(name: '/houseChosen', page: () => const HouseChosenPage()),
       ],
     );
   }
