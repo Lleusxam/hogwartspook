@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'navigation_bar.dart';
-import '../controllers/navigationbar_controller.dart';
-import './screens/home.dart';
-import './screens/spells.dart';
-import 'screens/discover.dart';
+import 'package:projetopoo/controllers/navigationbar_controller.dart';
+import 'package:projetopoo/views/screens/home.dart';
+import 'package:projetopoo/views/screens/spells.dart';
+import 'package:projetopoo/views/screens/discover.dart';
 import 'appbar.dart';
 
 class MainScreen extends StatelessWidget{

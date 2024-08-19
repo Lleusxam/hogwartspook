@@ -47,7 +47,8 @@ class HatController extends GetxController {
       update(); // Atualiza a UI
     } else {
       // Redireciona para a tela da casa escolhida
-      Get.offNamed('/houseChosen');
+      int randomValue = Random().nextInt(4) + 1;
+      Get.offNamed('/houseChosen', arguments: randomValue);
     }
   }
 }
